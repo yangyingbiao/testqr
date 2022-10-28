@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+	<button type="button" onclick="ff()">dd</button>
+    <h2 id="txt"></h2>
+    <input type="text" id="el">
+    <script>
+        let obj = {};
+        // 获取节点
+        let el = document.querySelector('#el');
+        let txt = document.querySelector('#txt');
+        Object.defineProperty(obj, 'foo', {
+            set: function (newValue) {
+                // 修改后的值 进行赋值
+                txt.innerHTML = newValue;
+            }
+        });
+        // 绑定事件
+        el.addEventListener('input', e => {
+            // 赋值给obj数据
+            obj.foo = e.target.value;
+        });
+		
+		function ff(){
+			console.log(obj.foo)
+		}
+    </script>
+</body>
+</html>
